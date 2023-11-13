@@ -13,9 +13,12 @@ struct TaskListView: View {
     
     var body: some View {
         VStack {
-            Toggle(isOn: $taskViewModel.filterCompletedTasks) {
-                Text("Filter Completed Tasks")
+            Picker("Filter", selection: $taskViewModel.selectedFilter) {
+                Text("All").tag(TaskFilter.all)
+                Text("Completed").tag(TaskFilter.completed)
+                Text("Not Completed").tag(TaskFilter.notCompleted)
             }
+            .pickerStyle(SegmentedPickerStyle())
             .padding()
             
             List {

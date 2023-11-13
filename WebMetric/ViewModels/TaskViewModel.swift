@@ -1,5 +1,11 @@
 import Foundation
 
+
+enum TaskFilter {
+    case all
+    case completed
+    case notCompleted
+}
 /**
  The `TaskViewModel` class is responsible for managing tasks and their persistence.
  It is an observable object that holds an array of tasks and provides methods for adding, toggling completion, filtering, and moving tasks.
@@ -10,7 +16,8 @@ import Foundation
 class TaskViewModel: ObservableObject {
     @Published var tasks: [Task] = []
     @Published var filterCompletedTasks: Bool = false
-    
+    @Published var selectedFilter: TaskFilter = .all
+
     private let taskPersistence: TaskPersistence
     
     init(taskPersistence: TaskPersistence = UserDefaultsTaskPersistence()) {
@@ -33,7 +40,14 @@ class TaskViewModel: ObservableObject {
     }
     
     func filterTasks() -> [Task] {
-        return filterCompletedTasks ? tasks.filter { $0.isCompleted } : tasks
+        switch selectedFilter {
+        case .all:
+            return tasks
+        case .completed:
+            return tasks.filter { $0.isCompleted }
+        case .notCompleted:
+            return tasks.filter { !$0.isCompleted }
+        }
     }
     
     func moveTask(from source: IndexSet, to destination: Int,completion: ([Task]) -> Void) {
