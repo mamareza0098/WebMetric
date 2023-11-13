@@ -15,7 +15,6 @@ enum TaskFilter {
  */
 class TaskViewModel: ObservableObject {
     @Published var tasks: [Task] = []
-    @Published var filterCompletedTasks: Bool = false
     @Published var selectedFilter: TaskFilter = .all
 
     private let taskPersistence: TaskPersistence

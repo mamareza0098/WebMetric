@@ -45,24 +45,70 @@ final class WebMetricTests: XCTestCase {
         }
     }
     
-    func testFilterTasks() {
+    func testFilterTasks_All() {
         // Given
-        let task1 = Task(title: "Task 1", description: "This is task 1.")
-        let task2 = Task(title: "Task 2", description: "This is task 2.")
-        let task3 = Task(title: "Task 3", description: "This is task 3.")
+        let task1 = Task(title: "Task 1", description: "Description 1")
+        let task2 = Task(title: "Task 2", description: "Description 2")
+        let task3 = Task(title: "Task 3", description: "Description 3")
+        
         taskViewModel.tasks = [task1, task2, task3]
+        taskViewModel.selectedFilter = .all
         
         // When
-        taskViewModel.filterCompletedTasks = true
+        let filteredTasks = taskViewModel.filterTasks()
         
         // Then
-        XCTAssertEqual(taskViewModel.filterTasks().count, 0)
+        XCTAssertEqual(filteredTasks.count, 3)
+        XCTAssertTrue(filteredTasks.contains(where: { filtered in
+            return (filtered.id == task1.id)
+        }))
+        XCTAssertTrue(filteredTasks.contains(where: { filtered in
+            return (filtered.id == task2.id)
+        }))
+        
+        XCTAssertTrue(filteredTasks.contains(where: { filtered in
+            return (filtered.id == task3.id)
+        }))
+    }
+    
+    func testFilterTasks_Completed() {
+        // Given
+        let task1 = Task(title: "Task 1", description: "Description 1", isCompleted: true)
+        let task2 = Task(title: "Task 2", description: "Description 2", isCompleted: false)
+        let task3 = Task(title: "Task 3", description: "Description 3", isCompleted: true)
+        
+        taskViewModel.tasks = [task1, task2, task3]
+        taskViewModel.selectedFilter = .completed
         
         // When
-        taskViewModel.filterCompletedTasks = false
+        let filteredTasks = taskViewModel.filterTasks()
         
         // Then
-        XCTAssertEqual(taskViewModel.filterTasks().count, 3)
+        XCTAssertEqual(filteredTasks.count, 2)
+        XCTAssertTrue(filteredTasks.contains(where: { filtered in
+            return (filtered.id == task1.id)
+        }))
+        XCTAssertTrue(filteredTasks.contains(where: { filtered in
+            return (filtered.id == task3.id)
+        }))
+    }
+    
+    func testFilterTasks_NotCompleted() {
+        // Given
+        let task1 = Task(title: "Task 1", description: "Description 1", isCompleted: true)
+        let task2 = Task(title: "Task 2", description: "Description 2", isCompleted: false)
+        let task3 = Task(title: "Task 3", description: "Description 3", isCompleted: true)
+        
+        taskViewModel.tasks = [task1, task2, task3]
+        taskViewModel.selectedFilter = .notCompleted
+        
+        // When
+        let filteredTasks = taskViewModel.filterTasks()
+        
+        // Then
+        XCTAssertTrue(filteredTasks.contains(where: { filtered in
+            return (filtered.id == task2.id)
+        }))
     }
     
     func testMoveTask() {
