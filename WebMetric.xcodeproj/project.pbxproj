@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E96C2572B028EC200F657CD /* WebMetricApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96C2562B028EC200F657CD /* WebMetricApp.swift */; };
-		7E96C2592B028EC200F657CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96C2582B028EC200F657CD /* ContentView.swift */; };
+		7E96C2592B028EC200F657CD /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96C2582B028EC200F657CD /* TaskListView.swift */; };
 		7E96C25B2B028EC300F657CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E96C25A2B028EC300F657CD /* Assets.xcassets */; };
 		7E96C25E2B028EC300F657CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E96C25D2B028EC300F657CD /* Preview Assets.xcassets */; };
 		7E96C2682B028EC300F657CD /* WebMetricTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96C2672B028EC300F657CD /* WebMetricTests.swift */; };
@@ -17,6 +17,8 @@
 		7E96C2812B028FD900F657CD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96C2802B028FD900F657CD /* Task.swift */; };
 		7E96C2832B028FEE00F657CD /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96C2822B028FEE00F657CD /* TaskViewModel.swift */; };
 		7E96C2852B0296B300F657CD /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96C2842B0296B200F657CD /* PersistenceService.swift */; };
+		7E96C28B2B02D24600F657CD /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96C28A2B02D24600F657CD /* TaskRowView.swift */; };
+		7E96C28D2B02D27200F657CD /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96C28C2B02D27200F657CD /* AddTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,7 @@
 /* Begin PBXFileReference section */
 		7E96C2532B028EC200F657CD /* WebMetric.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebMetric.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E96C2562B028EC200F657CD /* WebMetricApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebMetricApp.swift; sourceTree = "<group>"; };
-		7E96C2582B028EC200F657CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7E96C2582B028EC200F657CD /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		7E96C25A2B028EC300F657CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E96C25D2B028EC300F657CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7E96C2632B028EC300F657CD /* WebMetricTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebMetricTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +52,8 @@
 		7E96C2802B028FD900F657CD /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		7E96C2822B028FEE00F657CD /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		7E96C2842B0296B200F657CD /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		7E96C28A2B02D24600F657CD /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
+		7E96C28C2B02D27200F657CD /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				7E96C2562B028EC200F657CD /* WebMetricApp.swift */,
-				7E96C2582B028EC200F657CD /* ContentView.swift */,
+				7E96C2582B028EC200F657CD /* TaskListView.swift */,
+				7E96C28A2B02D24600F657CD /* TaskRowView.swift */,
+				7E96C28C2B02D27200F657CD /* AddTaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,9 +305,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E96C2852B0296B300F657CD /* PersistenceService.swift in Sources */,
-				7E96C2592B028EC200F657CD /* ContentView.swift in Sources */,
+				7E96C28D2B02D27200F657CD /* AddTaskView.swift in Sources */,
+				7E96C2592B028EC200F657CD /* TaskListView.swift in Sources */,
 				7E96C2832B028FEE00F657CD /* TaskViewModel.swift in Sources */,
 				7E96C2812B028FD900F657CD /* Task.swift in Sources */,
+				7E96C28B2B02D24600F657CD /* TaskRowView.swift in Sources */,
 				7E96C2572B028EC200F657CD /* WebMetricApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
